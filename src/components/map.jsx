@@ -12,10 +12,9 @@ class Map extends Component {
       zoom: 12,
     }
   }
-
-
   render() {
     const position = [this.state.lat, this.state.lng]
+    const position2 = [52.520, 13.450]
     return (
       <LeafletMap center={position} zoom={this.state.zoom} id="mapid">
         <TileLayer
@@ -25,6 +24,12 @@ class Map extends Component {
         <Marker position={position}>
           <Popup>
             Yeah. <br /> This is my first marker.
+          </Popup>
+        </Marker>
+
+        <Marker position={position2}>
+          <Popup>
+            Another marker <br /> This is my second marker.
           </Popup>
         </Marker>
       </LeafletMap>
