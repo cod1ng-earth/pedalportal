@@ -1,0 +1,17 @@
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "../node_modules/bulma/sass/utilities/functions";
+
+$dark-blue: #00087A;
+$blue: #0000FF;
+$cyan: #00CCFF;
+$salmon: #ff555b;
+
+$primary: $blue;
+$secondary: $cyan;
+$dark: $dark-blue;
+$link: $salmon;
+
+@import "../node_modules/bulma/sass/utilities/derived-variables";
+@import "../node_modules/bulma/bulma";
+
+//@import "./custom.scss"
