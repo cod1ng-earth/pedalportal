@@ -17,12 +17,17 @@ class Map extends Component {
   render() {
     const position = [this.state.lat, this.state.lng]
     return (
-        <LeafletMap center={position} zoom={this.state.zoom} id="mapid">
-          <TileLayer
-            attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-        </LeafletMap>
+      <LeafletMap center={position} zoom={this.state.zoom} id="mapid">
+        <TileLayer
+          attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={position}>
+          <Popup>
+            Yeah. <br /> This is my first marker.
+          </Popup>
+        </Marker>
+      </LeafletMap>
     );
   }
 }
