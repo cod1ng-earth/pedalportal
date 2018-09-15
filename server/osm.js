@@ -1,22 +1,15 @@
-const _pick = require('lodash.pick');
+const _rm = require('lodash.remove');
+const _map = require('lodash.map');
 const axios = require('axios');
+
 class OSM {
   
-  _query(bbox) {
+  _query(bbox, queryType) {
 
     return `
     [out:json][timeout:25][bbox:${bbox.neLat},${bbox.neLon},${bbox.swLat},${bbox.swLon}];
-    (
-      node["compressed_air"="yes"];
-      node["amenity"="compressed_air"];
-      node["service:bicycle:pump"="yes"];
-      node["amenity"="bicycle_repair_station"];
-      node["service:bicycle:diy"];
-      node["shop"="bicycle"];
-      node["amenity"="air_filling"];
-      node["bicycle:air"="compressed_air"];
-    );
-    out body;
+    (${queryType});
+    out body meta;
     >;
     out skel qt;
     `;
@@ -24,13 +17,21 @@ class OSM {
 
   _translate(osm) {
     const osmTags = osm.tags;
-    const addr = _pick(osmTags, ["addr:street", "addr:housenumber", "addr:postcode", "addr:city"]).join(" ");
+    const addr = (osmTags['addr:street']) ? 
+       [
+        osmTags["addr:street"],
+        osmTags["addr:housenumber"],
+        osmTags["addr:postcode"],
+        osmTags["addr:city"]
+      ].join(" ") : '';
+        
     const result = {
-      createdAt: null,
-      name: osm['name'],
-      description: osm['opening_hours'],
+      id: 'osm-' + osm.id,
+      createdAt: new Date(osm.timestamp),
+      name: osmTags['name'],
+      description: osmTags['opening_hours'],
       imageUrl: null,
-      address:  addr,
+      address: addr,
       deeplink: osmTags['website'] || osmTags['contact:website'],
       startsAt: null,
       expires: null,
@@ -39,31 +40,28 @@ class OSM {
       lng: osm.lon
     };
 
-    const tags = [];
+    const serviceTags = _rm(_map(osmTags, (value, tag) => {
+      if (tag == 'shop' && value == 'bicycle') {
+        return 'shop';
+      }
+      if (tag == 'vending' && value == 'bicycle_tube') {
+        result['name'] = osmTags['operator'];
+        return 'vending';
+      }
 
-    if (osmTags['shop'] == 'bicycle' || osmTags['service:bicycle:retail'] == 'yes') {
-      tags.push('retail'); 
-    }
-    if (osmTags['service:bicycle:rental'] == 'yes') {
-      tags.push('rental'); 
-    }
-    if (osmTags['service:bicycle:repair'] == 'yes') {
-      tags.push('repair'); 
-    }
-    if (osmTags['service:bicycle:pump'] == 'yes') {
-      tags.push('service'); 
-      tags.push('pump')
-    }
-    if (osmTags['service:bicycle:second_hand'] == 'yes') {
-      tags.push('second_hand'); 
-    }
+      if ((tag.indexOf("service:bicycle") == -1) || (value !== 'yes'))
+        return false;
 
-    result.tags = tags;
+      const parts = tag.split(":");
+      return parts[parts.length-1];
+    }), (v => v != false));
+    
+    result.tags = serviceTags;
     return result;
   }
 
-  query(boundingBox, nodes) {
-    const theQuery = this._query(boundingBox)
+  query(boundingBox, queryType) {
+    const theQuery = this._query(boundingBox, queryType)
     return new Promise( (resolve, reject) => {
       axios({
         method: 'post',
@@ -76,5 +74,23 @@ class OSM {
     });
   }
 }
+
+OSM.QUERY_TYPE_VENDING_TUBE = `
+    node["vending"="bicycle_tube"];
+  `
+
+OSM.QUERY_TYPE_AIR = `
+    node["compressed_air"="yes"];
+    node["amenity"="compressed_air"];
+    node["amenity"="air_filling"];
+    node["service:bicycle:pump"="yes"];
+    node["bicycle:air"="compressed_air"];
+  `
+
+OSM.QUERY_TYPE_SHOPS_SERVICE = ` 
+    node["shop"="bicycle"];
+    node["amenity"="bicycle_repair_station"];
+    node[~"^service:bicycle:"~"yes"];
+  `
 
 module.exports = OSM;

@@ -18,6 +18,7 @@ module.exports = cors( (req , res) => {
         neLat: 52.38817293874201, neLon: 13.208999633789062, 
         swLat: 52.65139547872391, swLon:13.69171142578125
       })
+      
     Promise.all([osmData])
     .then( (resp => {
         const rrr = {
