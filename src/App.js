@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import SearchHero from './components/SearchHero'
-import Map from './components/map'
+import MapBox from './components/map_box'
 import CardResults from './components/CardResults'
 
 import './all.css';
@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div className="App">
           <SearchHero />
-          <Map />
+          <MapBox />
           <CardResults results={demoData.results} />
       </div>
     );
