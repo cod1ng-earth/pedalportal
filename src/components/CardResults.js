@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from 'bloomer';
+import { Container, Columns, Column } from 'bloomer';
 
 import CardResult from './CardResult';
 
@@ -11,7 +11,18 @@ export default class CardResults extends Component {
     render() {
       return (
         <Container>
-           <CardResult item={this.props.results[0]} />
+          <Columns>
+            <Column isSize='1/3'>
+              <CardResult {...this.props.results[0]} />
+            </Column>
+            <Column isSize='1/3'>
+              <CardResult {...this.props.results[0]} />
+            </Column>
+            <Column isSize='1/3'>
+              <CardResult {...this.props.results[0]} />
+            </Column>
+
+          </Columns>
         </Container>
       );
     }

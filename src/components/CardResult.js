@@ -1,13 +1,28 @@
 import React, { Component } from 'react';
-import { Container, Hero, HeroBody, HeroHeader, HeroFooter, Title } from 'bloomer';
+import { Card, CardHeader, CardHeaderTitle, CardHeaderIcon, CardImage, CardContent, Content, Image } from 'bloomer';
 
 export default class CardResult extends Component {
 
     render() {
       return (
-        <div className="result">
-            {this.props.item.name}
-        </div>
+        <Card>
+          <CardHeader>
+              <CardHeaderTitle>
+                  {this.props.name}
+              </CardHeaderTitle>
+          </CardHeader>
+          <CardImage>
+              <Image isRatio='4:3' src='https://via.placeholder.com/1280x960' />
+          </CardImage>
+          <CardContent>
+              <Content>
+                  {this.props.description}
+                  <br/>
+                  <small>{this.props.opening_times}</small>
+              </Content>
+          </CardContent>
+
+        </Card>
       );
     }
 
