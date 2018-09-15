@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import SearchHero  from './components/SearchHero'
+import SearchHero from './components/SearchHero'
+import Map from './components/map'
 
 import './all.css';
 
@@ -9,6 +10,7 @@ class App extends Component {
     return (
       <div className="App">
           <SearchHero />
+          <Map />
       </div>
     );
   }
