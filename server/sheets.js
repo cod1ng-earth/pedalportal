@@ -21,8 +21,6 @@ class Sheets {
         if (rows.length) {
           
           const res = rows.map((row) => {
-            console.dir(row);
-
             return {
               createdAt: row[0],
               name: row[1],
