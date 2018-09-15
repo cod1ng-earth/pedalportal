@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
-import { Container, Hero, HeroBody, HeroHeader, HeroFooter, Title } from 'bloomer';
+import { Container, Hero, HeroBody, HeroHeader, Field, Label, Control, Input } from 'bloomer';
 
 export default class SearchHero extends Component {
     render() {
       return (
         <Hero isColor='info' isSize='medium'>
             <HeroHeader>
+                Welcome
             </HeroHeader>
 
             <HeroBody>
                 <Container hasTextAlign='centered'>
-                    <Title>Search!</Title>
+                <Field>
+                    <Label>Name</Label>
+                    <Control>
+                        <Input type="text" placeholder='Text Input' />
+                    </Control>
+                </Field>
                 </Container>
             </HeroBody>
 
-            <HeroFooter>
-            
-            </HeroFooter>
         </Hero>
       );
     }
