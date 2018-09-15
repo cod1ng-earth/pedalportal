@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet'
-
-console.log(LeafletMap);
+import Sheet from '../demodata/sheet.json';
 
 class Map extends Component {
   constructor (props) {
@@ -14,24 +13,23 @@ class Map extends Component {
   }
   render() {
     const position = [this.state.lat, this.state.lng]
-    const position2 = [52.520, 13.450]
+    const markers = Sheet.results.map((el, index) => (
+      <Marker position={el.location} key={index}>
+          <Popup>
+            {el.name} <br />
+            {el.tags.map((tag) =>
+              `${tag}, `
+            )}
+          </Popup>
+        </Marker>
+      ));
     return (
       <LeafletMap center={position} zoom={this.state.zoom} id="mapid">
         <TileLayer
           attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={position}>
-          <Popup>
-            Yeah. <br /> This is my first marker.
-          </Popup>
-        </Marker>
-
-        <Marker position={position2}>
-          <Popup>
-            Another marker <br /> This is my second marker.
-          </Popup>
-        </Marker>
+        {markers}
       </LeafletMap>
     );
   }
