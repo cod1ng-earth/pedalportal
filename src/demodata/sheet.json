@@ -1,0 +1,20 @@
+{
+    "results": [
+        {
+            "name": "Ostrad",
+            "tags": ["repair", "shop", "garage"],
+            "location": {
+                "address": "Winsstraße 48 10405 Berlin-Prenzlauer Berg",
+                "lat": 52.5353268,
+                "lng": 13.4242588
+            },
+            "image": {
+                "url": null,
+                "title": "ostrad"
+            },
+            "description": "a repair shop",
+            "opening_times": "Montag geschlossen Dienstag bis Freitag 09:00 – 19:00 Uhr Sonnabend 10:00 – 16:00 Uhr",
+            "created_at": "2018-09-15T14:38:43.511Z"
+        }
+    ]
+}
