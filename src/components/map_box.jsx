@@ -7,19 +7,15 @@ import MapFilter from './map_filter';
 class MapBox extends Component {
   constructor (props) {
     super(props);
-    this.state = {
-      lat: 52.520,
-      lng: 13.405,
-      zoom: 12,
-    }
   }
+
   render() {
     return (
       <Box id="map_box_id">
         <Container>
           <Columns>
             <Column isSize='3/4'>
-                <Map/>
+                <Map {...this.props} center={{lat: 52.520, lng: 13.405}} />
             </Column>
             <Column isSize='1/4'>
                 <MapFilter/>
