@@ -1,36 +1,26 @@
 import React, { Component } from 'react';
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet'
-
-const _intersection = require('lodash.intersection');
+import filterResults from '../util/filterResults';
 
 class Map extends Component {
   constructor (props) {
     super(props);
-    
     this.state = {
       position: [this.props.center.lat, this.props.center.lng],
       zoom: 12
     }
-
   }
   
   render() {
-    const filters = Object.keys(this.props.filter);
-
-    const filteredResults = filters.length > 0 ? this.props.result.filter(res => {
-        return _intersection(filters, res.tags).length > 0
-    }) : this.props.result
-
-    const markers = 
-      filteredResults.map((el, index) => {
-        return <Marker position={{lat: el.lat, lng:el.lng}} key={el.id || 'sh-' + index}>
+    const markers = filterResults(this.props).map((el, index) => {
+      return <Marker position={el.location} key={`${el.id}-${index}`}>
         <Popup>
           {el.name} <br />
-          {el.tags.map((tag) => `${tag}, `)}
+          {el.tags.join(',')} <br />
+          {el.location.address}
         </Popup>
       </Marker>
-
-      });    
+    });    
 
     return (
       <LeafletMap center={this.state.position} zoom={this.state.zoom} id="mapid">

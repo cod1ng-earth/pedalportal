@@ -1,7 +1,8 @@
-const OSMAPI = require('./../osm')
-const OsmApi = new OSMAPI();
+const OSMTranslator = require('../services/osm/translator')
+const OSMApi = require('../services/osm/service')
+const uniqueTags = require('../util/uniqueTags')
 
-const sampleResponses = require('./responses.json');
+const sampleResponses = require('./responses.json')
 
 test('translation of osm data to our structure', () => {
 
@@ -33,21 +34,29 @@ test('translation of osm data to our structure', () => {
 
   const expectedElement = {
     id: 'osm-267090674',
+    origin: "osm",
+    kind: "shop",
     createdAt: new Date("2016-07-02T16:52:54Z"),
     name: 'Rad Company',
-    description: "Mo-Fr 10:00-19:00; Sa 10:00-18:00",
+    description: "",
     imageUrl: null,
-    address:  "Hauptstraße 163 10827 Berlin",
+    contact:  {
+      "email": "schoeneberg@radcompany.de",
+      "phone": "+49 30 78894123"
+    },
     deeplink: "http://radcompany.de",
     startsAt: null,
-    expires: null,
-    startsAtTime: null,
-    lat: 52.4911635,
-    lng: 13.3612843,
+    expiresAt: null,
+    opening_hours: "Mo-Fr 10:00-19:00; Sa 10:00-18:00",
+    location: {
+      lat: 52.4911635,
+      lng: 13.3612843,
+      address: "Hauptstraße 163, 10827 Berlin"
+    },
     tags: ['shop']
   }
 
-  expect(OsmApi._translate(osmElem)).toEqual(expectedElement);
+  expect(OSMTranslator.translate(osmElem)).toEqual(expectedElement);
 });
 
 test('translation of special tags data to our structure', () => {
@@ -85,21 +94,29 @@ test('translation of special tags data to our structure', () => {
 
   const expectedElement = {
     id: 'osm-2670904',
+    kind: "shop",
+    origin: "osm",
     createdAt: new Date("2018-02-09T16:24:23Z"),
     name: 'Rad Company',
-    description: "Mo-Fr 10:00-19:00; Sa 10:00-18:00",
+    description: "",
     imageUrl: null,
-    address:  "Hauptstraße 163 10827 Berlin",
     deeplink: "http://radcompany.de",
     startsAt: null,
-    expires: null,
-    startsAtTime: null,
-    lat: 52.4911635,
-    lng: 13.3612843,
+    expiresAt: null,
+    contact: {
+      "email": "schoeneberg@radcompany.de",
+      "phone": "+49 30 78894123"
+    },
+    opening_hours: "Mo-Fr 10:00-19:00; Sa 10:00-18:00",
+    location: {
+      lat: 52.4911635,
+      lng: 13.3612843,
+      address:  "Hauptstraße 163, 10827 Berlin"
+    },
     tags: ['shop','parts','pump','rental','repair','second_hand']
   }
 
-  expect(OsmApi._translate(osmElem)).toEqual(expectedElement);
+  expect(OSMTranslator.translate(osmElem)).toEqual(expectedElement);
 });
 
 test('vending machines are translated', () => {
@@ -121,22 +138,27 @@ test('vending machines are translated', () => {
   }
   const expected = {
     id: 'osm-3895798940',
+    kind: "vending",
+    origin: "osm",
     createdAt: new Date("2016-01-08T01:05:47Z"),
     name: 'Roland Jabs Nachfahrer',
+    description: "",
     imageUrl: null,
-    address:  "",
     startsAt: null,
-    expires: null,
-    startsAtTime: null,
-    lat: 52.5121769,
-    lng: 13.4606102,
+    expiresAt: null,
+    location: {
+      lat: 52.5121769,
+      lng: 13.4606102,
+    },
+    contact: {},
+    opening_hours: "",
     tags: ['vending']
   }
-  expect(OsmApi._translate(osm)).toEqual(expected);
+  expect(OSMTranslator.translate(osm)).toEqual(expected);
 })
 
 test('translations are resilient on real data', () => {
-  const t = OsmApi.translateElements(sampleResponses.elements);
+  const t = OSMTranslator.translateAll(sampleResponses.elements);
   t.forEach((trElem, idx) => {
     expect(trElem.id).toEqual('osm-' + sampleResponses.elements[idx].id)
   })
@@ -144,8 +166,8 @@ test('translations are resilient on real data', () => {
 
 
 test('extract unique tags from translated elements', () => {
-  const t = OsmApi.translateElements(sampleResponses.elements);
-  const tags = OsmApi.uniqueTags(t);
+  const t = OSMTranslator.translateAll(sampleResponses.elements);
+  const tags = uniqueTags(t);
 
-  expect(Object.keys(tags).length).toEqual(20);
+  expect(Object.keys(tags).length).toEqual(22);
 })
