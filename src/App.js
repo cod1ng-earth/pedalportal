@@ -24,7 +24,7 @@ class App extends Component {
 
   _fetch() {
     const baseUrl = process.env.REACT_APP_API_ENDPOINT
-    const url = baseUrl //+ "/?demo=true"
+    const url = baseUrl + "/?demo=true"
     fetch(url, {
       method: 'GET',
     }).then(resp => {

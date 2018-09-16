@@ -8,9 +8,9 @@ class MapFilter extends Component {
     super(props);
   }
   render() {
-    const tagMap = new Map();
+    //const tagMap = new Map();
 
-    Sheet.results.forEach((el) => {
+    /*Sheet.results.forEach((el) => {
       el.tags.forEach((tag) => {
         if (tagMap.has(tag)) {
           const value1 = tagMap.get(tag);
@@ -20,16 +20,16 @@ class MapFilter extends Component {
           (tagMap.set(tag, [el]));
       });
     });
-    console.log(tagMap. keys());
+    console.log(tagMap. keys());*/
 
-    const panelBlocks = tagMap.keys((el) => (
+    //const panelBlocks = tagMap.keys((el) => (
+    const panelBlocks = Object.keys(this.props.tags).map(tag => (
        <PanelBlock>
         <Checkbox onChange={console.log('The link was clicked.')}>
-            {el.tags}
+            {tag}
         </Checkbox>
       </PanelBlock>
    ));
-
 
     // const panelBlocks = Sheet.results.map((el, index) => (
     //   <PanelBlock key={index}> <Checkbox> {el.tags} </Checkbox> </PanelBlock>
@@ -39,10 +39,6 @@ class MapFilter extends Component {
       <Panel>
         <PanelHeading>Map Filters</PanelHeading>
         {panelBlocks}
-        <PanelBlock> <Checkbox> Shop </Checkbox> </PanelBlock>
-        <PanelBlock> <Checkbox> Rent </Checkbox> </PanelBlock>
-        <PanelBlock> <Checkbox> Repair </Checkbox> </PanelBlock>
-        <PanelBlock> <Checkbox> Initiative </Checkbox> </PanelBlock>
         <PanelBlock>
             <Button isOutlined isFullWidth isColor='primary'> Reset all filters</Button>
         </PanelBlock>

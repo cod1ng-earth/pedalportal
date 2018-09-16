@@ -13,8 +13,6 @@ class Map extends Component {
   }
   
   render() {
-    console.log("ding");
-
     const markers = this.props.result ?
       this.props.result.map((el, index) => (
       <Marker position={{lat: el.lat, lng:el.lng}} key={el.id || 'sh-' + index}>
