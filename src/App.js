@@ -54,8 +54,11 @@ class App extends Component {
             <Container>
                 <Content>
                     <Columns>
-                        <Column isFull>
+                        <Column>
                             <a href="https://docs.google.com/forms/d/1FcdTAo-ZstRybqQhU_ApJsz-rsDMqUhWyU2yoIG8e_4/edit" target="_blank">add something here</a>
+                        </Column>
+                        <Column>
+                            created on CycleHack Berlin 2018 by <a href="https://github.com/susott" target="_blank">Susanne</a> &amp; <a href="https://twitter.com/stadolf" target="_blank">Stefan</a>
                         </Column>
                     </Columns>
                 </Content>
@@ -65,7 +68,6 @@ class App extends Component {
       </div>
     );
   }
-  onCompon
 }
 
 export default App;

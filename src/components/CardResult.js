@@ -17,7 +17,6 @@ export default class CardResult extends Component {
         ]
       const placeholder_picture_url = placeholder_picture_urls[sample]
 
-      console.log(placeholder_picture_testurl)
       return (
         <Card>
           <CardHeader>
@@ -25,7 +24,7 @@ export default class CardResult extends Component {
                   {this.props.element.name}
               </CardHeaderTitle>
           </CardHeader>
-          <a href={this.props.element.deeplink}>
+          <a href={this.props.element.deeplink} target="_blank">
             <CardImage>
                 <Image isRatio='4:3' src={placeholder_picture_url} />
             </CardImage>
