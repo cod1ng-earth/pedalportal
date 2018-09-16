@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Sheet from '../demodata/sheet.json';
 import { Container, Columns, Column, Box } from 'bloomer';
 import Map from './map';
 import MapFilter from './map_filter';
