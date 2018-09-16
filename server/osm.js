@@ -7,7 +7,7 @@ class OSM {
   _query(bbox, queryType) {
 
     return `
-    [out:json][timeout:25][bbox:${bbox.neLat},${bbox.neLon},${bbox.swLat},${bbox.swLon}];
+    [out:json][timeout:25][bbox:${bbox.nw[0]},${bbox.nw[1]},${bbox.se[0]},${bbox.se[1]}];
     (${queryType});
     out body meta;
     >;
