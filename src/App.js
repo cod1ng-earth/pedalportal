@@ -3,12 +3,10 @@ import React, { Component } from 'react';
 import SearchHero from './components/SearchHero'
 import MapBox from './components/map_box'
 import CardResults from './components/CardResults'
+import { Container, Footer, Content, Columns, Column } from 'bloomer';
+
 
 import './all.css';
-
-const qrCode = require('./img/pedalportal.png');
-
-const demoData = require ('./demodata/sheet.json');
 
 class App extends Component {
   
@@ -52,6 +50,18 @@ class App extends Component {
           <SearchHero />
           <MapBox onFilter={this.onFilter} {...this.state} />
           <CardResults {...this.state} />
+          <Footer id='footer'>
+            <Container>
+                <Content>
+                    <Columns>
+                        <Column isFull>
+                            <a href="https://docs.google.com/forms/d/1FcdTAo-ZstRybqQhU_ApJsz-rsDMqUhWyU2yoIG8e_4/edit" target="_blank">add something here</a>
+                        </Column>
+                    </Columns>
+                </Content>
+            </Container>
+          </Footer>
+          
       </div>
     );
   }
