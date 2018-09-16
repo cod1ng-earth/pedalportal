@@ -4,29 +4,26 @@ import { Container, Columns, Column } from 'bloomer';
 import CardResult from './CardResult';
 
 export default class CardResults extends Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+      super(props);
+  }
+  render() {
+    //console.log(this.props.result.description);
+    const cards = this.props.result.map((el) => (
+        // console.log(el.name)
+        <Column isSize='1/4'>
+          <CardResult element = {el}/>
+        </Column>
+      ));
 
-    render() {
-      return (
-        <Container>
-          <Columns>
-          {/*
-            <Column isSize='1/3'>
-              <CardResult {...this.props.results[0]} />
-            </Column>
-            <Column isSize='1/3'>
-              <CardResult {...this.props.results[0]} />
-            </Column>
-            <Column isSize='1/3'>
-              <CardResult {...this.props.results[0]} />
-            </Column>
-          */}
-          </Columns>
-        </Container>
-      );
-    }
+    return (
+      <Container>
+        <Columns isMultiline>
+        {cards}
+        </Columns>
+      </Container>
+    );
+  }
 }
-  
+
 
