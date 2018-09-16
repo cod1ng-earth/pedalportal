@@ -18,7 +18,7 @@ class MapBox extends Component {
                 <Map {...this.props} center={{lat: 52.520, lng: 13.405}} />
             </Column>
             <Column isSize='1/4'>
-                <MapFilter tags={this.props.tags} />
+                <MapFilter tags={this.props.tags} onFilter={this.props.onFilter} />
             </Column>
           </Columns>
         </Container>

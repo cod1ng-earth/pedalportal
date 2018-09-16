@@ -15,8 +15,10 @@ class App extends Component {
     this.state = {
       search: '',
       tags: {},
-      result: []
+      result: [],
+      filter: {}
     }
+    this.onFilter = this.onFilter.bind(this)
   }
   componentDidMount() {
     this._fetch()
@@ -24,7 +26,11 @@ class App extends Component {
 
   _fetch() {
     const baseUrl = process.env.REACT_APP_API_ENDPOINT
-    const url = baseUrl + "/?demo=true"
+    let url = baseUrl;
+    if (process.env.REACT_APP_DEMO == 'true') {
+      url += "/?demo=true";
+    }
+
     fetch(url, {
       method: 'GET',
     }).then(resp => {
@@ -34,11 +40,15 @@ class App extends Component {
     })
   }
 
+  onFilter(filter) {
+    this.setState({filter})
+  }
+
   render() {
     return (
       <div className="App">
           <SearchHero />
-          <MapBox {...this.state}/>
+          <MapBox onFilter={this.onFilter} {...this.state} />
           <CardResults {...this.state} />
       </div>
     );
