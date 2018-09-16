@@ -1,70 +1,70 @@
 import React, { Component } from 'react';
 
 import SearchHero from './components/SearchHero'
-import MapBox from './components/map_box'
+import MapBox from './components/MapBox'
 import CardResults from './components/CardResults'
-import { Container, Footer, Content, Columns, Column } from 'bloomer';
+import Footer from './components/Footer'
+import './all.css'
 
-
-import './all.css';
+const _includes = require('lodash.includes')
 
 class App extends Component {
   
   constructor(props) {
     super(props);
     this.state = {
-      search: '',
-      tags: {},
       result: [],
-      filter: {}
+      tags: [],
+      selectedTags: []
     }
-    this.onFilter = this.onFilter.bind(this)
+    this.onTagChanged = this.onTagChanged.bind(this)
   }
+
   componentDidMount() {
     this._fetch()
   }
 
   _fetch() {
     const baseUrl = process.env.REACT_APP_API_ENDPOINT
-    let url = baseUrl;
-    if (process.env.REACT_APP_DEMO == 'true') {
-      url += "/?demo=true";
-    }
+    const url = process.env.REACT_APP_DEMO === 'true' ? baseUrl + "/?demo=true" : baseUrl;
 
     fetch(url, {
       method: 'GET',
     }).then(resp => {
       resp.json().then(json => {
-        this.setState({result:json.result, tags: json.tags});
+        this.setState(json);
       })
     })
   }
 
-  onFilter(filter) {
-    this.setState({filter})
+  onTagChanged(tag) {
+    if (_includes(this.state.selectedTags, tag)) {
+      this.setState({
+        selectedTags: this.state.selectedTags.filter(item => item !== tag)
+      });
+    } else {
+      this.setState({
+        selectedTags: this.state.selectedTags.concat([tag])
+      });
+    }
   }
 
   render() {
     return (
       <div className="App">
           <SearchHero />
-          <MapBox onFilter={this.onFilter} {...this.state} />
-          <CardResults {...this.state} />
-          <Footer id='footer'>
-            <Container>
-                <Content>
-                    <Columns>
-                        <Column>
-                            <a href="https://docs.google.com/forms/d/1FcdTAo-ZstRybqQhU_ApJsz-rsDMqUhWyU2yoIG8e_4/edit" target="_blank">add something here</a>
-                        </Column>
-                        <Column>
-                            created on CycleHack Berlin 2018 by <a href="https://github.com/susott" target="_blank">Susanne</a> &amp; <a href="https://twitter.com/stadolf" target="_blank">Stefan</a>
-                        </Column>
-                    </Columns>
-                </Content>
-            </Container>
-          </Footer>
-          
+          <MapBox 
+            results={this.state.result} 
+            tags={this.state.tags} 
+            selectedTags={this.state.selectedTags}
+            onTagChanged={this.onTagChanged}
+          />
+          <CardResults 
+            results={this.state.result} 
+            tags={this.state.tags} 
+            selectedTags={this.state.selectedTags} 
+          />
+          <Footer />
       </div>
     );
   }

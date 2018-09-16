@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Hero, HeroBody, HeroHeader, Field, Label, Control, Input, Title, Image } from 'bloomer';
+import { Container, Hero, HeroBody, HeroHeader,  Title, Image } from 'bloomer';
 
 const qrCode = require('../img/pedalportal.png');
 
