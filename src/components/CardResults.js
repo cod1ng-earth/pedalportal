@@ -12,6 +12,7 @@ export default class CardResults extends Component {
       return (
         <Container>
           <Columns>
+          {/*
             <Column isSize='1/3'>
               <CardResult {...this.props.results[0]} />
             </Column>
@@ -21,7 +22,7 @@ export default class CardResults extends Component {
             <Column isSize='1/3'>
               <CardResult {...this.props.results[0]} />
             </Column>
-
+          */}
           </Columns>
         </Container>
       );

@@ -1,0 +1,288 @@
+{
+    "tags": {
+        "hackathon": 1,
+        "event": 3,
+        "ride": 2,
+        "shop": 331,
+        "pump": 25,
+        "repair": 63,
+        "second_hand": 20,
+        "cleaning": 2,
+        "retail": 44,
+        "rental": 28,
+        "diy": 8,
+        "vending": 18,
+        "Bicycle_Sales_and_Service": 3,
+        "parts": 5,
+        "sales": 3,
+        "bicycle": 2,
+        "tools": 3,
+        "chaintool": 1,
+        "fee": 2,
+        "screwdriver": 1,
+        "chain_tool": 3,
+        "charging": 1,
+        "dealer": 1,
+        "ebike": 1,
+        "service": 1
+    },
+    "result": [
+        {
+            "createdAt": "15.09.2018 17:04:50",
+            "name": "CycleHack Berlin",
+            "tags": [
+                "hackathon",
+                "event"
+            ],
+            "description": "Yet another Cycle Hack.",
+            "imageUrl": "https://drive.google.com/open?id=1BW1FtLlzzHV6i4GN9Nc21YOfxYsGOsSt",
+            "address": "IXDS  Paul-Lincke-Ufer 39-40  10999 Berlin",
+            "deeplink": "https://www.eventbrite.de/e/cyclehack-berlin-2018-tickets-48362363130",
+            "startsAt": "14.09.2018",
+            "expires": "16.09.2018",
+            "startsAtTime": "18:00:00",
+            "lat": 52.496649,
+            "lng": 13.4225585
+        },
+        {
+            "createdAt": "15.09.2018 20:15:30",
+            "name": "Marathon Ride",
+            "tags": [
+                "event",
+                "ride"
+            ],
+            "description": "Entlang der Marathon-Strecke fahren",
+            "imageUrl": "",
+            "address": "Großer Stern",
+            "deeplink": "https://www.facebook.com/groups/128874740626769/permalink/1114762995371267/",
+            "startsAt": "16.09.2018",
+            "expires": "",
+            "startsAtTime": "06:50:00",
+            "lat": 52.5136549,
+            "lng": 13.3457061
+        },
+        {
+            "createdAt": "15.09.2018 21:42:36",
+            "name": "Critical Mass",
+            "tags": [
+                "ride",
+                "event"
+            ],
+            "description": "Well just ride",
+            "imageUrl": "",
+            "address": "Mariannenplatz 2, 10997 Berlin",
+            "deeplink": "",
+            "startsAt": "28.09.2018",
+            "expires": "",
+            "startsAtTime": "20:00:00",
+            "lat": 52.501853,
+            "lng": 13.424192
+        },
+        {
+            "id": "osm-267090674",
+            "createdAt": "2016-07-15T11:08:11.000Z",
+            "name": "Rad Company",
+            "description": "Mo-Fr 10:00-19:00; Sa 10:00-18:00",
+            "imageUrl": null,
+            "address": "Hauptstraße 163 10827 Berlin",
+            "deeplink": "http://radcompany.de",
+            "startsAt": null,
+            "expires": null,
+            "startsAtTime": null,
+            "lat": 52.4911635,
+            "lng": 13.3612843,
+            "tags": [
+                "shop"
+            ]
+        },
+        {
+            "id": "osm-267616613",
+            "createdAt": "2018-08-08T18:30:04.000Z",
+            "name": "Ostrad",
+            "description": "Mo-Fr 09:00-19:00, Sa 10:00-15:00",
+            "imageUrl": null,
+            "address": "Winsstraße 48 10405 Berlin",
+            "deeplink": "http://www.ostrad.de",
+            "startsAt": null,
+            "expires": null,
+            "startsAtTime": null,
+            "lat": 52.5353347,
+            "lng": 13.4264758,
+            "tags": [
+                "shop"
+            ]
+        },
+        {
+            "id": "osm-267671633",
+            "createdAt": "2014-11-13T14:12:10.000Z",
+            "name": "Bike Ants",
+            "imageUrl": null,
+            "address": "Prenzlauer Allee 43 10405 Berlin",
+            "startsAt": null,
+            "expires": null,
+            "startsAtTime": null,
+            "lat": 52.5361329,
+            "lng": 13.4228315,
+            "tags": [
+                "shop"
+            ]
+        },
+        {
+            "id": "osm-270742543",
+            "createdAt": "2016-07-16T14:05:14.000Z",
+            "name": "FahrRadCity",
+            "imageUrl": null,
+            "address": "Gerichtstraße 84 13347 Berlin",
+            "deeplink": "http://fahrradcity.berlin/",
+            "startsAt": null,
+            "expires": null,
+            "startsAtTime": null,
+            "lat": 52.5421157,
+            "lng": 13.3774423,
+            "tags": [
+                "shop"
+            ]
+        },
+        {
+            "id": "osm-275682701",
+            "createdAt": "2017-05-15T19:32:28.000Z",
+            "name": "Radsport Sonntag",
+            "description": "Mo-Fr 10:00-19:00; Sa 09:30-14:00",
+            "imageUrl": null,
+            "address": "Uhlandstraße 98-99 10715 Berlin",
+            "deeplink": "http://www.radsportsonntag.de/",
+            "startsAt": null,
+            "expires": null,
+            "startsAtTime": null,
+            "lat": 52.4858151,
+            "lng": 13.3221299,
+            "tags": [
+                "shop"
+            ]
+        },
+        {
+            "id": "osm-282434809",
+            "createdAt": "2015-12-22T00:59:17.000Z",
+            "name": "Radmutter",
+            "imageUrl": null,
+            "address": "Petersburger Straße 93 10247 Berlin",
+            "deeplink": "http://www.radmutter.com",
+            "startsAt": null,
+            "expires": null,
+            "startsAtTime": null,
+            "lat": 52.5173185,
+            "lng": 13.4539564,
+            "tags": [
+                "shop"
+            ]
+        },
+        {
+            "id": "osm-285082719",
+            "createdAt": "2017-02-04T14:12:43.000Z",
+            "name": "Fahrradcenter Friedrichshain",
+            "description": "Mo-Fr 10:00-19:00; Sa 10:00-16:00",
+            "imageUrl": null,
+            "address": "Kopernikusstraße 22 10245 Berlin",
+            "deeplink": "http://www.fc-friedrichshain.de/",
+            "startsAt": null,
+            "expires": null,
+            "startsAtTime": null,
+            "lat": 52.5103343,
+            "lng": 13.4545643,
+            "tags": [
+                "pump",
+                "shop"
+            ]
+        },
+        {
+            "id": "osm-287975859",
+            "createdAt": "2015-12-22T00:54:24.000Z",
+            "name": "EastsideBiker",
+            "imageUrl": null,
+            "address": "Weichselstraße 34 10247 Berlin",
+            "deeplink": "www.eastsidebiker.de",
+            "startsAt": null,
+            "expires": null,
+            "startsAtTime": null,
+            "lat": 52.5133152,
+            "lng": 13.4707026,
+            "tags": [
+                "shop"
+            ]
+        },
+        {
+            "id": "osm-293430045",
+            "createdAt": "2017-11-25T15:46:15.000Z",
+            "name": "Britzer Fahrradhaus",
+            "description": "Mo-Fr 09:00-18:00, Sa 09:00-13:00",
+            "imageUrl": null,
+            "address": "Fritz-Reuter-Allee 176 12359 Berlin",
+            "deeplink": "http://www.britzerfahrradhaus.de",
+            "startsAt": null,
+            "expires": null,
+            "startsAtTime": null,
+            "lat": 52.4379113,
+            "lng": 13.446406,
+            "tags": [
+                "shop"
+            ]
+        },
+        {
+            "id": "osm-300808809",
+            "createdAt": "2017-05-05T11:19:14.000Z",
+            "name": "City Bike Berlin",
+            "imageUrl": null,
+            "address": "Wollankstraße 21A 13187 Berlin",
+            "deeplink": "http://www.citybikeberlin.de/?page_id=8",
+            "startsAt": null,
+            "expires": null,
+            "startsAtTime": null,
+            "lat": 52.5653462,
+            "lng": 13.3944559,
+            "tags": [
+                "repair",
+                "second_hand",
+                "shop"
+            ]
+        },
+        {
+            "id": "osm-304986897",
+            "createdAt": "2017-12-17T17:56:31.000Z",
+            "name": "Fahrradhof Steglitz",
+            "description": "Mar-Oct: Mo-Fr 10:00-20:00; Sa 10:00-18:00; Nov-Feb: Mo-Fr 10:00-18:30; Sa 10:00-16:00",
+            "imageUrl": null,
+            "address": "Feuerbachstraße 26 12163 Berlin",
+            "deeplink": "http://www.fahrradhofsteglitz.de/",
+            "startsAt": null,
+            "expires": null,
+            "startsAtTime": null,
+            "lat": 52.4633221,
+            "lng": 13.3300909,
+            "tags": [
+                "cleaning",
+                "pump",
+                "repair",
+                "retail",
+                "second_hand",
+                "shop"
+            ]
+        },
+        {
+            "id": "osm-308242285",
+            "createdAt": "2016-09-01T14:40:52.000Z",
+            "name": "Räderwerk",
+            "description": "Mo-Fr 10:00-19:00; Sa 10:00-16:00",
+            "imageUrl": null,
+            "address": "Körtestraße 14 10967 Berlin",
+            "deeplink": "http://www.raederwerk.de",
+            "startsAt": null,
+            "expires": null,
+            "startsAtTime": null,
+            "lat": 52.4907823,
+            "lng": 13.4102522,
+            "tags": [
+                "shop"
+            ]
+        }
+    ]
+}

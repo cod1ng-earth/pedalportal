@@ -7,6 +7,8 @@ const URL = require('url');
 const QS = require('querystring');
 const cors = microCors()
 
+const demoData = require('./demo.json');
+
 const SheetsApi = new SheetsAPI({
     apiToken: process.env.GOOGLE_API_TOKEN
 });
@@ -20,6 +22,9 @@ module.exports = cors( (req , res) => {
     
     const url = URL.parse(req.url);
     const qs = QS.parse(url.query);
+    if (qs.demo=='true') {
+        return send(res, 200, demoData);
+    }
 
     const bbox = {
         nw: qs['bbox[nw]'] ? qs['bbox[nw]'].split(',') : DEFAULT_NW,
