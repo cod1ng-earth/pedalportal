@@ -1,0 +1,79 @@
+[
+  {
+    "row": [
+      "15.09.2018 17:04:50",
+      "CycleHack Berlin",
+      "hackathon,event",
+      "Yet another Cycle Hack.",
+      "https://drive.google.com/open?id=1BW1FtLlzzHV6i4GN9Nc21YOfxYsGOsSt",
+      "IXDS  Paul-Lincke-Ufer 39-40  10999 Berlin",
+      "https://www.eventbrite.de/e/cyclehack-berlin-2018-tickets-48362363130",
+      "14.09.2018",
+      "16.09.2018",
+      "18:00:00",
+      "52,496649000",
+      "13,422558500"
+    ],
+    "expected": {
+      "id": "gds-",
+      "origin": "gds",
+      "kind": null,
+      "createdAt": "15.09.2018 17:04:50",
+      "name": "CycleHack Berlin",
+      "tags": [
+        "hackathon",
+        "event"
+      ],
+      "description": "Yet another Cycle Hack.",
+      "imageUrl": "https://drive.google.com/open?id=1BW1FtLlzzHV6i4GN9Nc21YOfxYsGOsSt",
+      "deeplink": "https://www.eventbrite.de/e/cyclehack-berlin-2018-tickets-48362363130",
+      "startsAt": "14.09.2018 18:00:00",
+      "expiresAt": "16.09.2018",
+      "contact": {},
+      "location": {
+        "address": "IXDS  Paul-Lincke-Ufer 39-40  10999 Berlin",
+        "lat": 52.496649,
+        "lng": 13.4225585
+      }
+    }
+  },
+  {
+    "row": [
+      "16.09.2018 13:39:47",
+      "ADFC Fahrradkreisfahrt",
+      "ride,event,ADFC",
+      "\"Bei der 18. ADFC Kreisfahrt machen wir die Straßen Berlins zur Bühne für alle, die endlich sicher, zügig und stressfrei Rad fahren wollen.\"",
+      "",
+      "Potsdamer Platz (Nordwest-Seite) ",
+      "https://adfc-berlin.de/aktiv-werden/bei-demonstrationen/kreisfahrt/593-8-adfc-kreisfahrt-umbau-statt-autostau-mobilitaetsgesetz-umsetzen.html",
+      "22.09.2018",
+      "22.09.2018",
+      "14:00:00",
+      "52,509210000",
+      "13,375920000"
+    ],
+    "expected": {
+      "id": "gds-",
+      "origin": "gds",
+      "kind": null,
+      "createdAt": "16.09.2018 13:39:47",
+      "name": "ADFC Fahrradkreisfahrt",
+      "tags": [
+          "ride",
+          "event",
+          "ADFC"
+      ],
+      "description": "\"Bei der 18. ADFC Kreisfahrt machen wir die Straßen Berlins zur Bühne für alle, die endlich sicher, zügig und stressfrei Rad fahren wollen.\"",
+      "imageUrl": "",
+      "deeplink": "https://adfc-berlin.de/aktiv-werden/bei-demonstrationen/kreisfahrt/593-8-adfc-kreisfahrt-umbau-statt-autostau-mobilitaetsgesetz-umsetzen.html",
+      "startsAt": "22.09.2018 14:00:00",
+      "expiresAt": "22.09.2018",
+      "contact": {},
+      "location": {
+          "address": "Potsdamer Platz (Nordwest-Seite) ",
+          "lat": 52.50921,
+          "lng": 13.37592
+      }
+    }
+  }
+]

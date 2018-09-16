@@ -1,6 +1,9 @@
 {
     "env": {
       "GOOGLE_API_TOKEN": "@google-api-token",
-      "GOOGLE_SPREADSHEET_ID": "@google-spreadsheet-id"
+      "GOOGLE_SPREADSHEET_ID": "@google-spreadsheet-id",
+      "MONGODB_URL": "@mongodb-url",
+      "MONGODB_COLLECTION": "@mongodb-collection",
+      "OSM_SERVICE_INTERPRETER_URL": "https://overpass-api.de/api/interpreter"
     }
 }
