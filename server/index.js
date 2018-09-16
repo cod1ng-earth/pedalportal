@@ -33,8 +33,9 @@ module.exports = cors( (req , res) => {
 
     Promise.all([sheetData, osmData])
     .then( (resp => {
-        const combinedResult = resp[0].concat(resp[1])
-        send(res, 200, {result: combinedResult});
+        const combinedResult = resp[0].concat(resp[1]);
+        const tags = OsmApi.uniqueTags(combinedResult);
+        send(res, 200, {tags, result: combinedResult});
     }) ).catch( err => {
         send(res, 500, err);
     });  

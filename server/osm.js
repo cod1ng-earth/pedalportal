@@ -60,6 +60,24 @@ class OSM {
     return result;
   }
 
+  translateElements(elements) {
+    return elements.map(this._translate);
+  }
+
+  uniqueTags(elements) {
+    const tags = {};
+    elements.forEach(el => {
+      el.tags.forEach(t => {
+        if (typeof tags[t] === "undefined") {
+          tags[t] = 1;
+        } else {
+          tags[t]++;
+        }
+      })
+    })
+    return tags;
+  }
+
   query(boundingBox, queryType) {
     const theQuery = this._query(boundingBox, queryType)
     return new Promise( (resolve, reject) => {
@@ -68,7 +86,7 @@ class OSM {
         url: "https://overpass-api.de/api/interpreter",
         data: theQuery
       }).then(resp => {
-        const res = resp.data.elements.map(this._translate)
+        const res = this.translateElements(resp.data.elements);
         resolve(res);
       })
     });

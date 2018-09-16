@@ -134,9 +134,18 @@ test('vending machines are translated', () => {
   }
   expect(OsmApi._translate(osm)).toEqual(expected);
 })
+
 test('translations are resilient on real data', () => {
-  sampleResponses.elements.forEach(osmElem => {
-    const t = OsmApi._translate(osmElem);
-    expect(t.id).toEqual('osm-' +osmElem.id)
+  const t = OsmApi.translateElements(sampleResponses.elements);
+  t.forEach((trElem, idx) => {
+    expect(trElem.id).toEqual('osm-' + sampleResponses.elements[idx].id)
   })
+})
+
+
+test('extract unique tags from translated elements', () => {
+  const t = OsmApi.translateElements(sampleResponses.elements);
+  const tags = OsmApi.uniqueTags(t);
+
+  expect(Object.keys(tags).length).toEqual(20);
 })
