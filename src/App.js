@@ -15,8 +15,10 @@ class App extends Component {
     this.state = {
       search: '',
       tags: {},
-      result: []
+      result: [],
+      filter: {}
     }
+    this.onFilter = this.onFilter.bind(this)
   }
   componentDidMount() {
     this._fetch()
@@ -34,11 +36,15 @@ class App extends Component {
     })
   }
 
+  onFilter(filter) {
+    this.setState({filter})
+  }
+
   render() {
     return (
       <div className="App">
           <SearchHero />
-          <MapBox {...this.state}/>
+          <MapBox onFilter={this.onFilter} {...this.state} />
           <CardResults {...this.state} />
       </div>
     );

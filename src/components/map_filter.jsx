@@ -5,8 +5,23 @@ import Sheet from '../demodata/sheet.json';
 
 class MapFilter extends Component {
   constructor (props) {
-    super(props);
+    super(props);  
+    this.state = { filters: {} };
   }
+
+  onCheckboxChanged(tag) {
+    const filters = this.state.filters;
+    if (filters[tag]) {
+      delete filters[tag];
+    }
+    else {
+      filters[tag] = true
+    }
+    
+    this.setState({filters});
+    this.props.onFilter(filters);
+  }
+  
   render() {
     //const tagMap = new Map();
 
@@ -24,8 +39,8 @@ class MapFilter extends Component {
 
     //const panelBlocks = tagMap.keys((el) => (
     const panelBlocks = Object.keys(this.props.tags).map(tag => (
-       <PanelBlock>
-        <Checkbox onChange={console.log('The link was clicked.')}>
+       <PanelBlock key={'filter-' + tag}>
+        <Checkbox onChange={() => this.onCheckboxChanged(tag)}>
             {tag}
         </Checkbox>
       </PanelBlock>
