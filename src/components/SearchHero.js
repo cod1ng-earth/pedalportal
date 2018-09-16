@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
-import { Container, Hero, HeroBody, HeroHeader, Field, Label, Control, Input } from 'bloomer';
+import { Container, Hero, HeroBody, HeroHeader, Field, Label, Control, Input, Title, Image } from 'bloomer';
+
+const qrCode = require('../img/pedalportal.png');
 
 export default class SearchHero extends Component {
     render() {
       return (
-        <Hero isColor='info' isSize='medium'>
+        <Hero isColor='info' isSize='small'>
             <HeroHeader>
-                Welcome
+                
             </HeroHeader>
 
             <HeroBody>
                 <Container hasTextAlign='centered'>
-                <Field>
-                    <Label>Name</Label>
-                    <Control>
-                        <Input type="text" placeholder='Text Input' />
-                    </Control>
-                </Field>
+                <Title>PedalPortal</Title>
+                <Image  isSize="128x128" src={qrCode} style={{margin: '0 auto'}}/>
                 </Container>
             </HeroBody>
 

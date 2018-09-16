@@ -6,6 +6,8 @@ import CardResults from './components/CardResults'
 
 import './all.css';
 
+const qrCode = require('./img/pedalportal.png');
+
 const demoData = require ('./demodata/sheet.json');
 
 class App extends Component {
